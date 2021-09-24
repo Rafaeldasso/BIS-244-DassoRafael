@@ -6,11 +6,38 @@ load(us_states)
  USStates <- as.data.frame(df)
  View(USStates)
  
- DFPA <- USStates %>% mutate(State = "Pennsylviania")
- View(DFPA)
- 
+
+DFPA <- USStates[USStates$state == "Pennsylvania", ]
+View(DFPA)
+
+summary(USStates)
+
+install.packages("dplyr")
+library(dplyr)
+
+changesDF <- DFPA %>% mutate(incr_cases = cases-lead(cases),
+                             incr_deaths = deaths - lead(deaths))
+View(changesDF)
+
 DFCases <- mutate(incr_cases(DEPA == "cases"))
 DFDeaths <- mutate(incr_deaths(DEPA == "deaths"))
 
-sd(DFCases)
+sd(DFCases,na.rm = TRUE)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
