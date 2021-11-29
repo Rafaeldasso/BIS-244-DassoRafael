@@ -1,6 +1,8 @@
 # BIS 244 - Assignment 05 Starter
 
 library(tidyverse)
+library(ggthemes)
+library(RColorBrewer)
 
 # Clear out Console and Environment
 rm(list=ls(all=TRUE))
@@ -20,4 +22,8 @@ ggplot(data=tonnage) +
   ggtitle("Quarterly Tonnage Arriving From Great Britain and Northern Ireland") + 
   xlab("Quarter") + 
   ylab("Tonnage") +
+  scale_color_brewer(palette = "Greens")
+  theme_wsj() +
   theme_minimal()
+  
+
